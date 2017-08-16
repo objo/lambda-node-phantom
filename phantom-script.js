@@ -2,14 +2,13 @@ var system = require('system');
 var args = system.args;
 var page = require('webpage').create();
 
-mySelector = args[1];
+url = "http://phantomjs.org";
+selector = "#feature-01 > div > p";
 
-system.stdout.write(mySelector);
-
-page.open('http://phantomjs.org', function() {
-  var elementValue = page.evaluate(function(mySelector) {
-      return document.querySelector(mySelector).textContent;
-  }, mySelector);
+page.open(url, function() {
+  var elementValue = page.evaluate(function(selector) {
+      return document.querySelector(selector).textContent;
+  }, selector);
   system.stdout.write(elementValue);
   phantom.exit();
 });

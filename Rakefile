@@ -28,5 +28,5 @@ end
 
 desc "Invoke lambda function #{FUNCTION}"
 task :invoke do
-  `aws lambda invoke --function-name #{FUNCTION} #{OUTPUT_FILE}`
+  `aws lambda invoke --function-name #{FUNCTION} --payload input_file.json #{OUTPUT_FILE}`
 end
